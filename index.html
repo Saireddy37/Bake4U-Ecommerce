@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="keywords" content="bakery, cakes, cupcakes, online cake shop">
+	<link rel="icon" href="favicon.ico" type="image/x-icon">
+	<meta name="description" content="Online bakery shop offering delicious cakes, cupcakes, and pastries">
+	<nav class="navbar" aria-label="Main navigation"></nav>
+	<title>Online Cake Website</title>
+	<link rel="stylesheet" href=
+"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+	<link rel="stylesheet" href="style.css">
+	<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+	<script>
+		(function(){
+			emailjs.init("p4y1pTPEgofgI_3vq");
+		})();
+	</script>
+</head>
+
+<body>
+	<header class="header">
+		<a href="#" class="logo"> BAKE4U </a>
+		<nav class="navbar">
+			<a href="#">Home</a>
+			<a href="#shop">Shop</a>
+			<a href="#about">About</a>
+			<a href="#contact">Contact</a>
+		</nav>
+		
+
+		<div class="icons">
+			<div id="menu-btn" class="fas fa-bars"></div>
+			<div id="cart-btn" class="fas fa-shopping-cart"></div>
+		</div>
+		<div class="hamburger" id="hamburger">
+			<div class="line"></div>
+			<div class="line"></div>
+			<div class="line"></div>
+		</div>
+	</header>
+
+
+	<section class="home" id="home">
+		<div class="slides-container">
+			<div class="slide active">
+				<div class="content">
+					<span>Order Cakes Online </span>
+					<h3>Upto 35% off</h3>
+				</div>
+				<div class="img">
+					<img decoding="async"
+						src=
+"https://media.geeksforgeeks.org/wp-content/uploads/20240301114007/image1_100.png" alt="">
+				</div>
+			</div>
+			<div class="slide">
+				<div class="content">
+					<span>Customize Ordering</span>
+					<h3>upto 35% off</h3>
+				</div>
+				<div class="img">
+					<img decoding="async"
+						src=
+"https://media.geeksforgeeks.org/wp-content/uploads/20240301113714/image12_100.png" alt="">
+				</div>
+			</div>
+
+			<div class="slide">
+				<div class="content">
+					<span>Fast Delivery</span>
+					<h3>upto 35% off</h3>
+					<a href="#" class="btn">Buy Now</a>
+				</div>
+				<div class="img">
+					<img decoding="async"
+						src=
+"https://media.geeksforgeeks.org/wp-content/uploads/20240301114007/image1_100.png">
+				</div>
+			</div>
+
+		</div>
+		<div id="next-slide" class="fas fa-angle-right" onclick="next()"></div>
+		<div id="prev-slide" class="fas fa-angle-left" onclick="next()"></div>
+	</section>
+
+	<section class="banner-container">
+
+		<div class="banner">
+			<img decoding="async"
+				src=
+"https://blog.fnp.ae/wp-content/uploads/2018/06/RedVelvetCake-Recipe-1024x1024.jpg" alt="">
+			<div class="content">
+				<span>Velvet Cakes</span>
+				<h3>upto 20% off</h3>
+			</div>
+		</div>
+
+		<div class="banner">
+			<img decoding="async"
+				src=
+"https://th.bing.com/th/id/OIP.qRVOqeLJ40zkgr46EUeBZwHaK0?rs=1&pid=ImgDetMain" alt="">
+			<div class="content">
+				<span>Marble Cakes</span>
+				<h3>upto 30% off</h3>
+			</div>
+		</div>
+
+		<div class="banner">
+			<img decoding="async"
+				src=
+"https://iambaker.net/wp-content/uploads/2013/11/chocolate-cake-slice-e1562794545746.jpg" alt="">
+			<div class="content">
+				<span>Chocolate Cakes</span>
+				<h3>upto 35% off</h3>
+			</div>
+		</div>
+
+	</section>
+
+
+	<div class="heading">
+		<h1>BAKE4U</h1>
+	</div>
+	<div class="search-section">
+		<input type="text" id="search-input" placeholder="Search for products...">
+	</div>
+
+	<section class="products" id="shop">
+
+		<h1 class="title"> our <span>products</span> <a href="#">view all >></a> </h1>
+
+		<div class="box-container">
+			<p id="no-results-message" style="display: none; text-align: center; font-size: 1.8rem; margin-top: 2rem; color: red;">
+				  Item not available
+		</p>
+
+			<div class="box">
+				<div class="icons">
+					<a href="#" class="fas fa-shopping-cart"></a>
+					<a href="#" class="fas fa-heart"></a>
+					<a href="#" class="fas fa-eye"></a>
+				</div>
+				<div class="img">
+					<img decoding="async"
+						src=
+"https://thumbs.dreamstime.com/b/delicious-cupcake-19575569.jpg" alt="">
+				</div>
+				<div class="content">
+					<h3>Fresh Cupcake</h3>
+					<div class="price">₹20</div>
+				</div>
+			</div>
+
+			<div class="box">
+				<div class="icons">
+					<a href="#" class="fas fa-shopping-cart"></a>
+					<a href="#" class="fas fa-heart"></a>
+					<a href="#" class="fas fa-eye"></a>
+				</div>
+				<div class="img">
+					<img decoding="async"
+						src=
+"https://www.biggerbolderbaking.com/wp-content/uploads/2023/03/Chips-Ahoy-Cookies-Thumbnail-scaled.jpg" alt="">
+				</div>
+				<div class="content">
+					<h3>Cookies</h3>
+					<div class="price">₹40</div>
+				</div>
+			</div>
+
+			<div class="box">
+				<div class="icons">
+					<a href="#" class="fas fa-shopping-cart"></a>
+					<a href="#" class="fas fa-heart"></a>
+					<a href="#" class="fas fa-eye"></a>
+				</div>
+				<div class="img">
+					<img decoding="async"
+						src=
+"https://cdn3.tmbi.com/secure/RMS/attachments/37/1200x1200/exps44465_TH1789925D19A_WEB.jpg" alt="">
+				</div>
+				<div class="content">
+					<h3>Brown Bread</h3>
+					<div class="price">₹70</div>
+				</div>
+			</div>
+
+			<div class="box">
+				<div class="icons">
+					<a href="#" class="fas fa-shopping-cart"></a>
+					<a href="#" class="fas fa-heart"></a>
+					<a href="#" class="fas fa-eye"></a>
+				</div>
+				<div class="img">
+					<img decoding="async"
+						src=
+"https://cdn.shopify.com/s/files/1/0938/5272/products/72dpi_Caragh_Chocolates_Bar-Dark_2048x2048.jpg?v=1475524721" alt="">
+				</div>
+				<div class="content">
+					<h3>Dark Chocolate</h3>
+					<div class="price">₹180</div>
+				</div>
+			</div>
+
+			<div class="box">
+				<div class="icons">
+					<a href="#" class="fas fa-shopping-cart"></a>
+					<a href="#" class="fas fa-heart"></a>
+					<a href="#" class="fas fa-eye"></a>
+				</div>
+				<div class="img">
+					<img decoding="async"
+						src=
+"https://lilluna.com/wp-content/uploads/2021/06/wheat-bread-resize-10.jpg" alt="">
+				</div>
+				<div class="content">
+					<h3>Wheat</h3>
+					<div class="price">₹50</div>
+				</div>
+			</div>
+
+			<div class="box">
+				<div class="icons">
+					<a href="#" class="fas fa-shopping-cart"></a>
+					<a href="#" class="fas fa-heart"></a>
+					<a href="#" class="fas fa-eye"></a>
+				</div>
+				<div class="img">
+					<img decoding="async"
+						src=
+"https://www.simplyrecipes.com/thmb/gN9DLi78z76gLzorDkA6c_gQzRo=/2000x1333/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2015__12__Fruitcake-LEAD-2-a01c04e1ad954e7c8505beb2778fdd98.jpg" alt="">
+				</div>
+				<div class="content">
+					<h3>fruit cakes</h3>
+					<div class="price">₹200</div>
+				</div>
+			</div>
+
+			<div class="box">
+				<div class="icons">
+					<a href="#" class="fas fa-shopping-cart"></a>
+					<a href="#" class="fas fa-heart"></a>
+					<a href="#" class="fas fa-eye"></a>
+				</div>
+				<div class="img">
+					<img decoding="async"
+						src=
+"https://th.bing.com/th/id/OIP.qRVOqeLJ40zkgr46EUeBZwHaK0?rs=1&pid=ImgDetMain" alt="">
+				</div>
+				<div class="content">
+					<h3>Marble Cake</h3>
+					<div class="price">₹900</div>
+				</div>
+			</div>
+
+			<div class="box">
+				<div class="icons">
+					<a href="#" class="fas fa-shopping-cart"></a>
+					<a href="#" class="fas fa-heart"></a>
+					<a href="#" class="fas fa-eye"></a>
+				</div>
+				<div class="img">
+					<img decoding="async"
+						src=
+"https://th.bing.com/th/id/OIP.NLum1gOS2DOrVdkGn7RNzAHaHY?rs=1&pid=ImgDetMain" alt="">
+				</div>
+				<div class="content">
+					<h3>Donut</h3>
+					<div class="price">₹99</div>
+				</div>
+			</div>
+
+			<div class="box">
+				<div class="icons">
+					<a href="#" class="fas fa-shopping-cart"></a>
+					<a href="#" class="fas fa-heart"></a>
+					<a href="#" class="fas fa-eye"></a>
+				</div>
+				<div class="img">
+					<img decoding="async"
+						src=
+"https://th.bing.com/th/id/OIP.bTvwMxRZdWdbas4JEUPfuwHaIf?rs=1&pid=ImgDetMain" alt="">
+				</div>
+				<div class="content">
+					<h3>Sparkel cake</h3>
+					<div class="price">₹900</div>
+				</div>
+			</div>
+
+			<div class="box">
+				<div class="icons">
+					<a href="#" class="fas fa-shopping-cart"></a>
+					<a href="#" class="fas fa-heart"></a>
+					<a href="#" class="fas fa-eye"></a>
+				</div>
+				<div class="img">
+					<img decoding="async"
+						src=
+"https://i.pinimg.com/originals/29/35/3f/29353f60f28bc609c2ede2fc9a3feb18.jpg" alt="">
+				</div>
+				<div class="content">
+					<h3>Nutella cake</h3>
+					<div class="price">₹700</div>
+				</div>
+			</div>
+
+			<div class="box">
+				<div class="icons">
+					<a href="#" class="fas fa-shopping-cart"></a>
+					<a href="#" class="fas fa-heart"></a>
+					<a href="#" class="fas fa-eye"></a>
+				</div>
+				<div class="img">
+					<img decoding="async"
+						src=
+"https://sallysbakingaddiction.com/wp-content/uploads/2017/06/moist-chocolate-cupcakes-2.jpg" alt="">
+				</div>
+				<div class="content">
+					<h3>Choco Cup</h3>
+					<div class="price">₹99</div>
+				</div>
+			</div>
+
+			<div class="box">
+				<div class="icons">
+					<a href="#" class="fas fa-shopping-cart"></a>
+					<a href="#" class="fas fa-heart"></a>
+					<a href="#" class="fas fa-eye"></a>
+				</div>
+				<div class="img">
+					<img decoding="async"
+						src=
+"https://natashaskitchen.com/wp-content/uploads/2020/12/Bundt-Cake-4-728x1092.jpg" alt="">
+				</div>
+				<div class="content">
+					<h3>Cranberry Cake</h3>
+					<div class="price">₹600</div>
+				</div>
+			</div>
+
+			<div class="box">
+				<div class="icons">
+					<a href="#" class="fas fa-shopping-cart"></a>
+					<a href="#" class="fas fa-heart"></a>
+					<a href="#" class="fas fa-eye"></a>
+				</div>
+				<div class="img">
+					<img decoding="async"
+						src=
+https://images.unsplash.com/photo-1588195538326-c5b1e9f80a1b?q=80&w=1950&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3Dalt="">
+				</div>
+				<div class="content">
+					<h3>american heritage chocolate</h3>
+					<div class="price">₹1900</div>
+				</div>
+			</div>
+
+
+
+<div class="box">
+				<div class="icons">
+					<a href="#" class="fas fa-shopping-cart"></a>
+					<a href="#" class="fas fa-heart"></a>
+					<a href="#" class="fas fa-eye"></a>
+				</div>
+				<div class="img">
+					<img decoding="async"
+						src=
+https://images.unsplash.com/photo-1571115177098-24ec42ed204d?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3Dalt="">
+				</div>
+				<div class="content">
+					<h3>Italian dessert</h3>
+					<div class="price">₹1000</div>
+				</div>
+			</div>
+
+			<div class="box">
+				<div class="icons">
+					<a href="#" class="fas fa-shopping-cart"></a>
+					<a href="#" class="fas fa-heart"></a>
+					<a href="#" class="fas fa-eye"></a>
+				</div>
+				<div class="img">
+					<img decoding="async"
+						src=
+"https://images2.alphacoders.com/216/216810.jpg" alt="">
+				</div>
+				<div class="content">
+					<h3>Cake Pastries</h3>
+					<div class="price">₹170</div>
+				</div>
+			</div>
+<div class="box">
+				<div class="icons">
+					<a href="#" class="fas fa-shopping-cart"></a>
+					<a href="#" class="fas fa-heart"></a>
+					<a href="#" class="fas fa-eye"></a>
+				</div>
+				<div class="img">
+					<img decoding="async"
+						src=
+"https://th.bing.com/th/id/OIP.YlQfggp4aVIPYaC7QL5CPgHaEK?pid=ImgDet&w=474&h=266&rs=1" alt="">
+				</div>
+				<div class="content">
+					<h3>Choco Pastries</h3>
+					<div class="price">₹170</div>
+				</div>
+			</div>
+<div class="box">
+				<div class="icons">
+					<a href="#" class="fas fa-shopping-cart"></a>
+					<a href="#" class="fas fa-heart"></a>
+					<a href="#" class="fas fa-eye"></a>
+				</div>
+				<div class="img">
+					<img decoding="async"
+						src=
+"https://img-global.cpcdn.com/recipes/55003ee8ba5a0c30/1200x630cq70/photo.jpg">
+				</div>
+				<div class="content">
+					<h3>Milk Pudding</h3>
+					<div class="price">₹300</div>
+				</div>
+			</div>
+<div class="box">
+				<div class="icons">
+					<a href="#" class="fas fa-shopping-cart"></a>
+					<a href="#" class="fas fa-heart"></a>
+					<a href="#" class="fas fa-eye"></a>
+				</div>
+				<div class="img">
+					<img decoding="async"
+						src=
+"https://img.huffingtonpost.com/asset/5bd876563c00009d020e2189.jpeg?cache=FDtvoUhUCB&ops=1910_1000" alt="">
+				</div>
+				<div class="content">
+					<h3>Chocolate Pie</h3>
+					<div class="price">₹200</div>
+				</div>
+			</div><div class="box">
+				<div class="icons">
+					<a href="#" class="fas fa-shopping-cart"></a>
+					<a href="#" class="fas fa-heart"></a>
+					<a href="#" class="fas fa-eye"></a>
+				</div>
+				<div class="img">
+					<img decoding="async"
+						src=
+"https://www.jocooks.com/wp-content/uploads/2018/11/sex-in-a-pan-1-28.jpg" alt="">
+				</div>
+				<div class="content">
+					<h3>Turtle Lasgana Dessert</h3>
+					<div class="price">₹300</div>
+				</div>
+			</div>
+
+<div class="box">
+				<div class="icons">
+					<a href="#" class="fas fa-shopping-cart"></a>
+					<a href="#" class="fas fa-heart"></a>
+					<a href="#" class="fas fa-eye"></a>
+				</div>
+				<div class="img">
+					<img decoding="async"
+						src=
+"https://i.pinimg.com/originals/51/d1/1b/51d11bbbf84f06a7034a55a280beab0e.jpg" alt="">
+				</div>
+				<div class="content">
+					<h3>Ricetaa Torta Profitorials</h3>
+					<div class="price">₹500</div>
+				</div>
+			</div>
+<div class="box">
+				<div class="icons">
+					<a href="#" class="fas fa-shopping-cart"></a>
+					<a href="#" class="fas fa-heart"></a>
+					<a href="#" class="fas fa-eye"></a>
+				</div>
+				<div class="img">
+					<img decoding="async"
+						src=
+"https://th.bing.com/th/id/OIP.-efucedwKSxUtkiPk672VwHaE7?rs=1&pid=ImgDetMain" alt="">
+				</div>
+				<div class="content">
+					<h3>Frenchy Cake</h3>
+					<div class="price">₹250</div>
+				</div>
+			</div>
+
+<div class="box">
+				<div class="icons">
+					<a href="#" class="fas fa-shopping-cart"></a>
+					<a href="#" class="fas fa-heart"></a>
+					<a href="#" class="fas fa-eye"></a>
+				</div>
+				<div class="img">
+					<img decoding="async"
+						src=
+"https://th.bing.com/th/id/OIP.2fT2n--Me3Y503odRApZPgHaDt?w=320&h=174&c=7&r=0&o=5&pid=1.7" alt="">
+				</div>
+				<div class="content">
+					<h3>Pink PineApple Cake</h3>
+					<div class="price">₹300</div>
+				</div>
+			</div>
+<div class="box">
+				<div class="icons">
+					<a href="#" class="fas fa-shopping-cart"></a>
+					<a href="#" class="fas fa-heart"></a>
+					<a href="#" class="fas fa-eye"></a>
+				</div>
+				<div class="img">
+					<img decoding="async"
+						src=
+"https://th.bing.com/th/id/OIP.OWL2RMtcUmUfsnwap6UbAgHaGU?w=164&h=180&c=7&r=0&o=5&pid=1.7" alt="">
+				</div>
+				<div class="content">
+					<h3>Vineela Cherry Cake</h3>
+					<div class="price">₹350</div>
+				</div>
+			</div>
+
+			<div class="box">
+				<div class="icons">
+					<a href="#" class="fas fa-shopping-cart"></a>
+					<a href="#" class="fas fa-heart"></a>
+					<a href="#" class="fas fa-eye"></a>
+				</div>
+				<div class="img">
+					<img decoding="async"
+						src=
+"https://th.bing.com/th/id/OIP.WtwHvDeDs_SYvZlIUia7jAHaGn?rs=1&pid=ImgDetMain" alt="">
+				</div>
+				<div class="content">
+					<h3>strawberry red spar cake</h3>
+					<div class="price">₹999</div>
+				</div>
+			</div>
+
+			<div class="box">
+				<div class="icons">
+					<a href="#" class="fas fa-shopping-cart"></a>
+					<a href="#" class="fas fa-heart"></a>
+					<a href="#" class="fas fa-eye"></a>
+				</div>
+				<div class="img">
+					<img decoding="async"
+						src=
+"https://blog.fnp.ae/wp-content/uploads/2018/06/RedVelvetCake-Recipe-1024x1024.jpg" alt="">
+				</div>
+				<div class="content">
+					<h3>Velvet Cake</h3>
+					<div class="price">₹1200</div>
+				</div>
+			</div>
+
+			<div class="box">
+				<div class="icons">
+					<a href="#" class="fas fa-shopping-cart"></a>
+					<a href="#" class="fas fa-heart"></a>
+					<a href="#" class="fas fa-eye"></a>
+				</div>
+				<div class="img">
+					<img decoding="async"
+						src=
+"https://i.pinimg.com/originals/9d/5a/ab/9d5aabaeaee03bd497e9d1dc52cd5fd5.jpg" alt="">
+				</div>
+				<div class="content">
+					<h3>dark chocolate nutella cake</h3>
+					<div class="price">₹2000</div>
+				</div>
+			</div>
+
+			<div class="box">
+				<div class="icons">
+					<a href="#" class="fas fa-shopping-cart"></a>
+					<a href="#" class="fas fa-heart"></a>
+					<a href="#" class="fas fa-eye"></a>
+				</div>
+				<div class="img">
+					<img decoding="async"
+						src=
+"https://cdn.igp.com/f_auto,q_auto,t_pnopt12prodlp/products/p-classic-red-velvet-cake-360793-m.jpg" alt="">
+				</div>
+				<div class="content">
+					<h3>Classic Red Velvet Cake</h3>
+					<div class="price">₹800</div>
+				</div>
+			</div>
+
+			<div class="box">
+				<div class="icons">
+					<a href="#" class="fas fa-shopping-cart"></a>
+					<a href="#" class="fas fa-heart"></a>
+					<a href="#" class="fas fa-eye"></a>
+				</div>
+				<div class="img">
+					<img decoding="async"
+						src=
+"https://cdn.igp.com/f_auto,q_auto,t_pnopt12prodlp/products/p-sunny-butterscotch-cake-360891-m.jpg" alt="">
+				</div>
+				<div class="content">
+					<h3>Butterscotch Cake</h3>
+					<div class="price">₹600</div>
+				</div>
+			</div>
+
+			<div class="box">
+				<div class="icons">
+					<a href="#" class="fas fa-shopping-cart"></a>
+					<a href="#" class="fas fa-heart"></a>
+					<a href="#" class="fas fa-eye"></a>
+				</div>
+				<div class="img">
+					<img decoding="async"
+						src=
+"https://cdn.igp.com/f_auto,q_auto,t_pnopt12prodlp/products/p-rasmalai-cream-cake-196587-m.jpg" alt="">
+				</div>
+				<div class="content">
+					<h3>Rasmalai Cream Cake</h3>
+					<div class="price">₹800</div>
+				</div>
+			</div>
+
+			<div class="box">
+				<div class="icons">
+					<a href="#" class="fas fa-shopping-cart"></a>
+					<a href="#" class="fas fa-heart"></a>
+					<a href="#" class="fas fa-eye"></a>
+				</div>
+				<div class="img">
+					<img decoding="async"
+						src=
+"https://bing.com/th?id=OSK.c5d4557d5eb70860065e465cd5000081" alt="">
+				</div>
+				<div class="content">
+					<h3>Oreo Drip Cake</h3>
+					<div class="price">₹700</div>
+				</div>
+			</div>
+
+			<div class="box">
+				<div class="icons">
+					<a href="#" class="fas fa-shopping-cart"></a>
+					<a href="#" class="fas fa-heart"></a>
+					<a href="#" class="fas fa-eye"></a>
+				</div>
+				<div class="img">
+					<img decoding="async"
+						src=
+"https://cdn.igp.com/f_auto,q_auto,t_pnopt12prodlp/products/p-rich-and-moist-black-forest-cake-190860-m.jpg" alt="">
+				</div>
+				<div class="content">
+					<h3>Classis Black Forest Cake</h3>
+					<div class="price">₹600</div>
+				</div>
+			</div>
+
+			<div class="box">
+				<div class="icons">
+					<a href="#" class="fas fa-shopping-cart"></a>
+					<a href="#" class="fas fa-heart"></a>
+					<a href="#" class="fas fa-eye"></a>
+				</div>
+				<div class="img">
+					<img decoding="async"
+						src=
+"https://iambaker.net/wp-content/uploads/2013/11/chocolate-cake-slice-e1562794545746.jpg" alt="">
+				</div>
+				<div class="content">
+					<h3>Chocolate Cake</h3>
+					<div class="price">₹900</div>
+				</div>
+			</div>
+
+			<div class="box">
+				<div class="icons">
+					<a href="#" class="fas fa-shopping-cart"></a>
+					<a href="#" class="fas fa-heart"></a>
+					<a href="#" class="fas fa-eye"></a>
+				</div>
+				<div class="img">
+					<img decoding="async"
+						src=
+"https://cdn.igp.com/f_auto,q_auto,t_pnopt12prodlp/products/p-classic-vanilla-cake-16991-m.jpg" alt="">
+				</div>
+				<div class="content">
+					<h3>Classis Vanila Cake</h3>
+					<div class="price">₹400</div>
+				</div>
+			</div>
+
+			<div class="box">
+				<div class="icons">
+					<a href="#" class="fas fa-shopping-cart"></a>
+					<a href="#" class="fas fa-heart"></a>
+					<a href="#" class="fas fa-eye"></a>
+				</div>
+				<div class="img">
+					<img decoding="async"
+						src=
+"https://www.brides.com/thmb/mIFheFeNeU5KkqyLAidgmVpGIV8=/2048x2048/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__brides__public__brides-services__production__2018__02__15__5a8607b815bb640b27c3989f_sara-and-tom-wedding-new-york-city2018013117_201-84d39f176e184175b63a51da3d78576f.jpg" alt="">
+				</div>
+				<div class="content">
+					<h3>Wedding Cake</h3>
+					<div class="price">₹6000</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+
+	<div class="heading">
+		<h1>About us</h1>
+	</div>
+
+	<section class="about" id="about">
+		<div class="img">
+			<img decoding="async"
+				src=
+"https://media.geeksforgeeks.org/wp-content/uploads/20240301113805/image11_100.png" alt="">
+		</div>
+
+			<div class=" content">
+				<h3>The Cake Shop</h3>
+				<p>Welcome to Bakery, where every confection tells
+					a story of passion and dedication. Founded by a team of
+					seasoned bakers with a shared love for crafting
+					delectable treats, our bakery embodies a commitment to
+					quality,
+					creativity, and customer satisfaction. From
+					the finest ingredients sourced locally to the meticulous
+					attention
+					to detail in every recipe, we take pride
+					in delivering indulgent experiences that
+					delight taste buds and
+					warm
+					hearts. With each cake, pastry, and dessert,
+					we strive to create moments of joy and celebration, making
+					every
+					occasion a little sweeter.</p>
+				<p>At Bakery, baking isn't just a profession; it's a labor
+					of love that fuels our imagination and drives our
+					pursuit of perfection. With years of experience and
+					a flair for innovation, our talented team brings
+					together
+					traditional techniques and modern flavors to create
+					signature delicacies that are as visually stunning
+					as they
+					are delicious. Whether it's a custom-designed wedding
+					cake, a batch of freshly baked cookies, or a
+					tempting
+					assortment of pastries for a special event, we pour our
+					passion into every creation, ensuring that each
+					bite is
+					a testament to our dedication to excellence. Join us on a
+					journey of culinary delights, where every bite
+					is a
+					taste of our unwavering commitment to baking brilliance.</p>
+			</div>
+	</section>
+
+
+	<div class="heading">
+		<h1>Contact us</h1>
+	</div>
+
+	<section class="contact" id="contact">
+		<div class="icons-container">
+
+			<div class="icons">
+				<i class="fas fa-phone"></i>
+				<h3>Contact number</h3>
+				<p>+91 8978185242</p>
+			</div>
+
+			<div class="icons">
+				<i class="fas fa-envelope"></i>
+				<h3>email</h3>
+				<p>madhavpavirala@gmail.com</p>
+			</div>
+
+			<div class="icons">
+				<i class="fas fa-map-marker-alt"></i>
+				<h3>address</h3>
+				<p>Pillar No 1163, Madhapur, Hyderabad</p>
+			</div>
+
+		</div>
+
+		<div class="row">
+<form id="contact-form" action="" onsubmit="return valid()">
+    <h3>get in touch</h3>
+    <div class="inputBox">
+        <input type="text"
+            placeholder="enter your name" class="box" id="name" name="name">
+        <input type="text"
+            placeholder="enter your email" class="box" id="email" name="email">
+    </div>
+    <div class="inputBox">
+        <input type="text"
+            placeholder="enter your subject" class="box" id="subject" name="subject">
+    </div>
+    <textarea placeholder=" your message" cols="30"
+            rows="10" id="message" name="message"></textarea>
+    <input type="submit" value="send message" class="btn">
+</form>
+		</div>
+
+	</section>
+
+	<div class="space"></div>
+
+	<section class="footer">
+		<div class="box-container">
+			<div class="box">
+				<h3>quick links</h3>
+				<a href="#"> <i class="fas 
+				fa-arrow-right"></i> Home</a>
+				<a href="#"> <i class="fas
+				fa-arrow-right"></i>Shop</a>
+				<a href="#"> <i class="fas
+				fa-arrow-right"></i>About</a>
+				<a href="#"> <i class="fas
+				fa-arrow-right"></i> Review</a>
+				<a href="#"> <i class="fas 
+				fa-arrow-right"></i>Blog</a>
+				<a href="#"> <i class="fas
+				fa-arrow-right"></i>Contact</a>
+			</div>
+
+			<div class="box">
+				<h3>follow us</h3>
+				<a href="#"> <i class="fab 
+				fa-facebook-f"></i> facebook </a>
+				<a href="#"> <i class="fab
+				fa-twitter"></i> twitter </a>
+				<a href="#"> <i class="fab 
+				fa-instagram"></i> instagram </a>
+				<a href="#"> <i class="fab
+				fa-linkedin"></i> linkedin </a>
+				<a href="#"> <i class="fab 
+				fa-pinterest"></i> pinterest </a>
+			</div>
+		</div>
+	</section>
+
+	<script src="script.js" defer data-deferred="1"></script>
+	<!-- Cart Modal -->
+	<div id="cart-modal" class="cart-modal hidden">
+		<div class="cart-header">
+			<h2>Your Cart</h2>
+			<span id="close-cart" class="close-btn">&times;</span>
+		</div>
+		<div class="cart-items" id="cart-items"></div>
+		<div class="cart-footer">
+			<p>Total: ₹<span id="cart-total">0</span></p>
+			<a href="checkout.html" class="btn">Checkout</a>
+		</div>
+	</div>
+	
+</div>
+
+<div id="image-modal" class="image-modal">
+  <span id="close-image-modal" class="close-modal">&times;</span>
+  <img id="modal-image" src="" alt="Product Preview">
+</div>
+
+</body>
+<footer>
+	<button onclick="logout()" class="btn">Logout</button>
+<script>
+  function logout() {
+    localStorage.removeItem("loggedIn");
+    window.location.href = "login.html";
+  }
+</script>
+</footer>
+
+</html>

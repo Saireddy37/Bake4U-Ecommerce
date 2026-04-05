@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Checkout - Online Cake Store</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 2rem;
+      background: linear-gradient(135deg, #ffe0e3, #ffffff);
+    }
+    .container {
+      max-width: 800px;
+      background: #fff;
+      margin: auto;
+      padding: 2.5rem;
+      border-radius: 1.5rem;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    }
+    h2 {
+      text-align: center;
+      font-size: 2rem;
+      color: #b91c1c;
+    }
+    label {
+      display: block;
+      font-weight: 600;
+      margin-top: 1rem;
+      color: #333;
+    }
+    input, textarea, select {
+      width: 100%;
+      padding: 0.85rem 1rem;
+      margin-top: 0.5rem;
+      border-radius: 0.75rem;
+      border: 1.5px solid #ccc;
+      font-size: 1rem;
+      background: #f9f9f9;
+    }
+    .btn {
+      margin-top: 2rem;
+      background: linear-gradient(to right, #f43f5e, #ec4899);
+      color: white;
+      border: none;
+      padding: 1rem;
+      border-radius: 0.75rem;
+      font-weight: 600;
+      font-size: 1.1rem;
+      cursor: pointer;
+      width: 100%;
+    }
+    .cart-items {
+      margin-top: 2rem;
+    }
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px dashed #ccc;
+      padding: 0.5rem 0;
+      font-size: 1rem;
+      color: #4b5563;
+    }
+    .total {
+      font-weight: 700;
+      font-size: 1.3rem;
+      text-align: right;
+      margin-top: 1rem;
+      color: #1f2937;
+    }
+    #qr-section {
+      display: none;
+      text-align: center;
+      margin-top: 2rem;
+      padding: 1rem;
+      background: #fff7f9;
+      border-radius: 1rem;
+      border: 2px dashed #f43f5e;
+    }
+    #qr-section img {
+      margin-top: 1rem;
+      border-radius: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Checkout</h2>
+    <label>Full Name</label>
+    <input type="text" id="name" required placeholder="John Doe" />
+
+    <label>Mobile Number</label>
+    <input type="tel" id="phone" required placeholder="9876543210" pattern="^\d{10}$" />
+
+    <label>Delivery Address</label>
+    <button onclick="getLiveLocation()" class="btn">My Live Location</button>
+    <p id="location-output" style="margin-top: 10px; font-size: 1.6rem;"></p>
+    <textarea id="address" rows="3" required placeholder="Flat No, Street, City, Pincode"></textarea>
+
+    <label>Payment Method</label>
+    <select id="payment-method" onchange="toggleQR()">
+      <option value="">Select</option>
+      <option value="cod">Cash on Delivery</option>
+      <option value="upi">UPI</option>
+    </select>
+
+    <div id="qr-section" style="display:none;">
+      <p>Scan the QR below to pay via UPI:</p>
+      <img id="qr-img" width="200" />
+      <p><strong>UPI ID:</strong> 7675959524-3@axl<br><strong>Name:</strong> Bake4U Cakes</p>
+    </div>
+
+    <div class="cart-items" id="cart-items"></div>
+    <div class="total">Total: ₹<span id="total">0</span></div>
+
+    <button class="btn" onclick="placeOrder()">Place Order</button>
+  </div>
+
+  <script>
+    const ownerUPI = "7675959524-3@axl";
+    const payeeName = "Bake4U Cakes";
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    function displayCart() {
+      const cartItems = document.getElementById('cart-items');
+      const totalSpan = document.getElementById('total');
+
+      cartItems.innerHTML = '';
+      let total = 0;
+
+      if (cart.length === 0) {
+        cartItems.innerHTML = '<p>Your cart is empty.</p>';
+        totalSpan.textContent = '0';
+        return;
+      }
+
+      cart.forEach(item => {
+        let lineTotal = item.price * item.quantity;
+        let discount = 0;
+
+        const name = item.name.toLowerCase();
+
+        if (name.includes("chocolate")) {
+          discount = lineTotal * 0.35;
+        }
+
+        lineTotal -= discount;
+
+        const div = document.createElement('div');
+        div.className = 'cart-item';
+        div.innerHTML = `<span>${item.name}</span><span>₹${lineTotal.toFixed(2)}</span>`;
+        cartItems.appendChild(div);
+        total += lineTotal;
+      });
+
+      totalSpan.textContent = total.toFixed(2);
+    }
+
+    function toggleQR() {
+      const method = document.getElementById('payment-method').value;
+      const qrSection = document.getElementById('qr-section');
+
+      if (method === 'upi') {
+        const amount = document.getElementById('total').textContent;
+        const upiUrl = `upi://pay?pa=${encodeURIComponent(ownerUPI)}&pn=${encodeURIComponent(payeeName)}&am=${amount}&cu=INR`;
+        const qrApi = `https://api.qrserver.com/v1/create-qr-code/?data=${encodeURIComponent(upiUrl)}&size=200x200`;
+        document.getElementById('qr-img').src = qrApi;
+        qrSection.style.display = 'block';
+      } else {
+        qrSection.style.display = 'none';
+      }
+    }
+
+    
+
+    function getLiveLocation() {
+      const output = document.getElementById("location-output");
+
+      if (!navigator.geolocation) {
+        output.innerText = "Geolocation is not supported by your browser.";
+        return;
+      }
+
+      output.innerText = "Fetching location...";
+
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const { latitude, longitude } = position.coords;
+          const apiKey = "67aaa457ea1d475ea8f0bca4879978ea";
+          const url = `https://api.opencagedata.com/geocode/v1/json?q=${latitude}+${longitude}&key=${apiKey}`;
+
+          fetch(url)
+            .then(res => res.json())
+            .then(data => {
+              if (data && data.results && data.results.length > 0) {
+                const address = data.results[0].formatted;
+                output.innerHTML = `Detected address: <strong>${address}</strong>`;
+                document.getElementById("address").value = address;
+              } else {
+                output.innerText = "Unable to retrieve address.";
+              }
+            })
+            .catch(() => {
+              output.innerText = "Failed to retrieve address.";
+            });
+        },
+        (error) => {
+          const messages = {
+            1: "Location access denied by user.",
+            2: "Location information is unavailable.",
+            3: "Location request timed out."
+          };
+          output.innerText = messages[error.code] || "An unknown error occurred.";
+        }
+      );
+    }
+
+    function placeOrder() {
+      const name = document.getElementById('name').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const address = document.getElementById('address').value.trim();
+      const method = document.getElementById('payment-method').value;
+
+      if (!name || !phone || !address || !method) {
+        alert("Please fill all the details.");
+        return;
+      }
+
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+      if (cart.length === 0) {
+        alert("Your cart is empty.");
+        return;
+      }
+
+      // Convert cart items to a string
+      let items = "";
+      cart.forEach(item => {
+        items += `${item.name} - ₹${item.price}\n`;
+      });
+
+      let total = 0;
+      cart.forEach(item => {
+        let lineTotal = item.price * item.quantity;
+        let discount = 0;
+        const name = item.name.toLowerCase();
+
+        if (name.includes("velvet")) {
+          discount = lineTotal * 0.20;
+        } else if (name.includes("marble")) {
+          discount = lineTotal * 0.30;
+        } else if (name.includes("chocolate")) {
+          discount = lineTotal * 0.35;
+        }
+
+        lineTotal -= discount;
+        total += lineTotal;
+      });
+
+      const templateParams = {
+        user_name: name,
+        user_phone: phone,
+        user_address: address,
+        payment_method: method.toUpperCase(),
+        order_items: items,
+        order_total: `₹${total.toFixed(2)}`,
+        discount: `35% on chocolate cakes`
+      };
+
+      emailjs.send("service_ws2xd0f", "template_djd0drr", templateParams)
+        .then(function(response) {
+          alert("Order placed successfully! The owner has been notified.");
+          localStorage.removeItem('cart');
+          window.location.href = "index.html";
+        }, function(error) {
+          alert("Failed to send order. Please try again.");
+          console.log("EmailJS Error:", error);
+        });
+    }
+
+
+    function placeOrder() {
+      const name = document.getElementById('name').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const address = document.getElementById('address').value.trim();
+      const method = document.getElementById('payment-method').value;
+
+      if (!name || !/^[a-zA-Z ]{2,50}$/.test(name)) return alert("Enter valid name");
+      if (!/^\d{10}$/.test(phone)) return alert("Enter valid 10-digit mobile number");
+      if (address.length < 10) return alert("Enter complete address");
+      if (!method) return alert("Select payment method");
+
+      alert("Order placed successfully!");
+      localStorage.removeItem('cart');
+      window.location.href = "confirmation.html";
+    }
+
+    displayCart();
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script>
+  (function () {
+    emailjs.init("p4y1pTPEgofgI_3vq"); // Replace with your public key from EmailJS dashboard
+  })();
+</script>
+
+</body>
+</html>
