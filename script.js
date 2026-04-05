@@ -137,55 +137,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  function updateCartUI() {
-  const cartItemsDiv = document.getElementById("cart-items");
-  const cartTotal = document.getElementById("cart-total");
-
-  cartItemsDiv.innerHTML = "";
-  let total = 0;
-
-  cart.forEach((item, i) => {
-    let lineTotal = item.price * item.quantity;
-    let discount = 0;
-    let discountText = "";
-
-    const name = item.name.toLowerCase();
-
-    if (name.includes("velvet")) {
-      discount = lineTotal * 0.20;
-      discountText = " (20% off)";
-    } else if (name.includes("marble")) {
-      discount = lineTotal * 0.30;
-      discountText = " (30% off)";
-    if (name.includes("chocolate")) {
-      discount = lineTotal * 0.35;
-      discountText = " (35% off)";
-    }
-
-    lineTotal -= discount;
-
-    const p = document.createElement("p");
-    p.innerHTML = `
-      ${item.name} - ₹${item.price} × 
-      <select onchange="updateQuantity(${i}, this.value)">
-        ${[...Array(10).keys()].map(n => `<option value="${n+1}" ${n+1 === item.quantity ? 'selected' : ''}>${n+1}</option>`).join('')}
-      </select>
-      = ₹${lineTotal.toFixed(2)}
-      <span style="color:green;">${discountText}</span>
-      <button onclick="removeItem(${i})">Remove</button>
-    `;
-
-    cartItemsDiv.appendChild(p);
-    total += lineTotal;
-  });
-
-  cartTotal.innerText = total.toFixed(2);
-}
-window.updateQuantity = function(index, quantity) {
-  cart[index].quantity = parseInt(quantity);
-  updateCartUI();
-};
-
 
   function updateCartUI() {
   const cartItemsDiv = document.getElementById("cart-items");
